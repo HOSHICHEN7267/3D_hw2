@@ -9,13 +9,16 @@ public class TurtleController : MonoBehaviour
 
     float time = 0f;
     public float waitTime = 1f;
-    public float speed = 0.2f;
-    public float destroyTime = 2f;
+    public float deltax = 0.075f;
+    public float speed = 0.03f;
+    float destroyTime = 2.5f;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         time = 0f;
+        destroyTime = deltax / speed;
         //animator = GetComponent<Animator>();
         animator.SetBool("IsWalking", false);
     }
