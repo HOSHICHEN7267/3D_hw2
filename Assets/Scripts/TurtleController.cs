@@ -5,24 +5,19 @@ using UnityEngine;
 public class TurtleController : MonoBehaviour
 {
 
-    public GameObject TurtlePrefab;
-
-    float sideLen = 7.2f;
-    float gridLen = 1.6f;
-    float halfGridLen = 0.8f;
-    float gridDis = 0.7f;
+    public Animator animator;
 
     float time = 0f;
-    // float destroyTime = 3f;
-    float periodTime = 2.5f;
-
-    bool firstSpawn = true;
+    public float waitTime = 1f;
+    public float speed = 0.2f;
+    public float destroyTime = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
-        gridLen = sideLen / 5;
-        halfGridLen = gridLen / 2;
+        time = 0f;
+        //animator = GetComponent<Animator>();
+        animator.SetBool("IsWalking", false);
     }
 
     // Update is called once per frame
@@ -30,47 +25,12 @@ public class TurtleController : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time > periodTime || firstSpawn)
-        {
-            firstSpawn = false;
-
-            float posx = 0f;
-            float posz = 0f;
-            float roty = 0f;
-
-            int posNum = Random.Range(0, 19);
-            Debug.Log("pos: " + posNum);
-            if (posNum <= 4)
-            {
-                posx = (posNum - 2) * gridLen;
-                posz = halfGridLen + gridLen * 2 + gridDis;
-                roty = 180f;
-            }
-            else if (posNum <= 9)
-            {
-                posx = halfGridLen + gridLen * 2 + gridDis;
-                posz = -1 * (posNum - 7) * gridLen;
-                roty = -90f;
-            }
-            else if (posNum <= 14)
-            {
-                posx = -1 * (posNum - 12) * gridLen;
-                posz = -1 * (halfGridLen + gridLen * 2 + gridDis);
-                roty = 0f;
-            }
-            else if (posNum <= 19)
-            {
-                posx = -1 * (halfGridLen + gridLen * 2 + gridDis);
-                posz = (posNum - 17) * gridLen;
-                roty = 90f;
-            }
-
-            Debug.Log("roty: " + roty);
-
-            Quaternion newRotation = Quaternion.Euler(0, roty, 0);
-            Instantiate(TurtlePrefab, new Vector3(posx, 0, posz), newRotation);
-
-            time = 0;
+        if(time > destroyTime){
+            Destroy(gameObject);
+        }
+        else if(time > waitTime){
+            animator.SetBool("IsWalking", true);
+            this.gameObject.transform.position += this.gameObject.transform.forward * speed;
         }
     }
 }
