@@ -9,9 +9,9 @@ public class TurtleController : MonoBehaviour
 
     float time = 0f;
     public float waitTime = 1f;
-    public float deltax = 0.075f;
-    public float speed = 0.03f;
-    float destroyTime = 2.5f;
+    float deltax = 15.75f;
+    float destroyTime = 2.25f;
+    public float speed = 7f;
     
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class TurtleController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         time += Time.deltaTime;
 
@@ -33,7 +33,7 @@ public class TurtleController : MonoBehaviour
         }
         else if(time > waitTime){
             animator.SetBool("IsWalking", true);
-            this.gameObject.transform.position += this.gameObject.transform.forward * speed;
+            this.gameObject.transform.position += this.gameObject.transform.forward * speed * Time.deltaTime;
         }
     }
 }

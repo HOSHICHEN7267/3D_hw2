@@ -846,10 +846,10 @@ GameObject:
   - component: {fileID: 4882590064214274}
   - component: {fileID: 95528395651247964}
   - component: {fileID: -4073142511864819914}
-  - component: {fileID: -3099478989158343074}
+  - component: {fileID: 1343207162295871861}
   m_Layer: 0
   m_Name: TurtleShell
-  m_TagString: Untagged
+  m_TagString: Turtle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -905,10 +905,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 95528395651247964}
   waitTime: 1
-  deltax: 0.075
-  speed: 0.03
---- !u!64 &-3099478989158343074
-MeshCollider:
+  speed: 7
+--- !u!65 &1343207162295871861
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -917,10 +916,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 56dd4edec19a3b04195448769c085dfc, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.2823229, y: 1.210758, z: 1.275}
+  m_Center: {x: 0, y: 0.5987872, z: -0.008678675}
 --- !u!1 &1914324128724412
 GameObject:
   m_ObjectHideFlags: 0

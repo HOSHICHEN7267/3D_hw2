@@ -40,7 +40,7 @@ public class TurtleSpawner : MonoBehaviour
             float roty = 0f;
 
             int posNum = Random.Range(0, 19);
-            Debug.Log("pos: " + posNum);
+            // Debug.Log("pos: " + posNum);
             if (posNum <= 4)
             {
                 posx = (posNum - 2) * gridLen;
