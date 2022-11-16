@@ -1319,7 +1319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5ef8f229474ec4bb87623cfdfffa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  dogAnime: {fileID: 2066896392029128874}
+  speed: 0.8
 --- !u!54 &-2146862614808183309
 Rigidbody:
   m_ObjectHideFlags: 0
