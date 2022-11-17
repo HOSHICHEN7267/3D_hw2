@@ -13,7 +13,6 @@ public class TurtleSpawner : MonoBehaviour
     float gridDis = 0.7f;
 
     float time = 0f;
-    // float destroyTime = 3f;
     float periodTime = 2.5f;
 
     bool firstSpawn = true;
@@ -71,5 +70,12 @@ public class TurtleSpawner : MonoBehaviour
 
             time = 0;
         }
+    }
+
+    public void increaseSpeed(){
+        if(periodTime > 0.5f){
+            periodTime -= 0.5f;
+        }
+        Debug.Log("PeriodTime: " + periodTime);
     }
 }

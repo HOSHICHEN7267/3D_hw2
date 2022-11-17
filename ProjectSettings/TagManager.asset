@@ -48,3 +48,6 @@ TagManager:
   - name: Grid
     uniqueID: 702285431
     locked: 0
+  - name: Canvas
+    uniqueID: 1711839305
+    locked: 0

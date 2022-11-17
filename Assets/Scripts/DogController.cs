@@ -26,7 +26,6 @@ public class DogController : MonoBehaviour
             time += Time.deltaTime;
             if(time > dieTime){
                 isDying = false;
-                Debug.Log("Recover");
                 time = 0;
             }
         }
@@ -69,9 +68,11 @@ public class DogController : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.gameObject.tag == "Turtle"){
-            if(!isDying) isDying = true;
-            dogAnime.SetInteger("Status", 2);
-            Debug.Log("Die");
+            if(!isDying){
+                isDying = true;
+                GameObject.Find("GameManager").GetComponent<GameManager>().minusLife();
+                dogAnime.SetInteger("Status", 2);
+            }
         }
     }
 }
